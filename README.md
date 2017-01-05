@@ -10,7 +10,7 @@ Calling the App.define function creates a global namespace and returns it.
 let module = App.define('modules.module1');
 console.log(module === App.modules.module1); //true
 ```
-Also App.define has third parameter which can be object or function. 
+Also App.define has second parameter which can be object or function. 
 When passing a function 'this' context is bound to the created namespace. 
 ```js
 //App.modules.module1.property 
@@ -25,3 +25,11 @@ App.define('modules.module1', {
 	property: 'test'
 }); 
 ```
+
+# Change Log
+
+
+### 1.1.1 - 2017-01-05
+### Changed
+- Underscore dependency removed;
+- Bugs with object and function arguments fixed.
