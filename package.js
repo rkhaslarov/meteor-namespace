@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'rkhaslarov:namespace',
-	version: '1.1.2',
+	version: '1.1.3',
 	summary: 'This package provides a simple javascript app namespacing utility.',
 	git: 'https://github.com/rkhaslarov/namespace',
 	documentation: 'README.md'

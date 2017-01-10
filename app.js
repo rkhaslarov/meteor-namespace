@@ -2,7 +2,7 @@ if (typeof global.App === 'undefined') {
 	App = {};
 } 
 
-App.define = (ns, object) => {
+App.namespace = (ns, object, prototype) => {
 
 	let ns_parts = ns.split(".");
 	let ns_main = App;
@@ -17,10 +17,19 @@ App.define = (ns, object) => {
 
 		if (typeof ns_main[ns_parts[i]] === 'undefined') {
 
-			if(typeof object === 'undefined' || i < ns_last) {
+			if(i < ns_last) {
 				ns_main[ns_parts[i]] = {};
 			} else {
-				ns_main[ns_parts[i]] = Object.assign({}, typeof object === "function" ? new object() : object);
+
+				if(typeof object === 'undefined') {
+					ns_main[ns_parts[i]] = {};
+				} else {
+					ns_main[ns_parts[i]] = Object.assign({}, typeof object === "function" ? new object() : object);
+				}
+
+				if (prototype !== 'undefined') {
+					ns_main[ns_parts[i]].__proto__ = prototype;
+				}
 			}
 
 		}
@@ -31,3 +40,4 @@ App.define = (ns, object) => {
 	
 	return ns_main;
 }
+
