@@ -24,7 +24,9 @@ App.namespace = (ns, object, prototype) => {
 				if(typeof object === 'undefined') {
 					ns_main[ns_parts[i]] = {};
 				} else {
-					ns_main[ns_parts[i]] = Object.assign({}, typeof object === "function" ? new object() : object);
+					let instance = typeof object === "function" ? new object() : object;
+					ns_main[ns_parts[i]] = Object.assign({}, instance);
+					ns_main[ns_parts[i]].__proto__ = instance.__proto__;
 				}
 
 				if (prototype !== 'undefined') {
