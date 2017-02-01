@@ -39,6 +39,10 @@ App.namespace('modules.module1', {
 
 # Change Log
 
+### 1.1.4
+### 2017-02-01
+- Cloning with prototype
+
 ### 1.1.3
 ### 2017-01-09
 - Change App.define to App.namespace;
